@@ -114,7 +114,7 @@ REMOTE_PATH_ROOT = "/USB1/Favorite Games"  # Base path on C64 Ultimate
 
 ### Finding Your Configuration Values
 
-**MAC Address**: Check your C64 Ultimate's network settings or router's device list
+**MAC Address**: Check your C64 Ultimate's network settings or router's device list. **The Mac's arp command STRIPS LEADING ZEROS!!!  If your MAC address begins with a 0 (e.g. 05:AA:BB:1A:15:41) then you should set ULTIMATE_MAC = "5:AA:BB:1A:15:41"**
 
 **Network Interface**: Run `ifconfig` in terminal to find your active network interface (usually `en0` for Wi-Fi, `en1` for Ethernet)
 
