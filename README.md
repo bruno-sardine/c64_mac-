@@ -3,7 +3,7 @@
 A Python-based tool for creating and managing formatted text files on the Commodore 64 Ultimate via FTP. This tool allows you to create game documentation (usage notes, tips, and cheats) directly from your Mac, automatically sync them to your C64, and view these notes via the C64U system overlay **while you are within an actively running C64 application**.
 
 ### The Necessity / Purpose: 
-The C64U is able to either freeze-and-show or slide-over/overlay the system menu on top of the VICII's output .  This allows you to navigate to a .txt file and **view** it in-program! The problem is, The C64U's framework does not have a text editor or creator.  The ultimate goal would be for me to be using a program, such as Easy Script, and **in-program** create a text file that could be used for reminders on the program operation:
+The C64U is able to either freeze-and-show or slide-over/overlay the system menu on top of the VICII's output .  This allows you to navigate to a .txt file and **view** it in-program! The problem is, The C64U's framework does not have a text editor or creator.  The ultimate goal would be to use a program, such as Easy Script, and **in-program** create a text file that could be used for reminders on the program's operation:
 
 ```
 [Easy Script Commands]
