@@ -1,4 +1,4 @@
-# C64 Ultimate Text Creator
+# C64 Ultimate TextCreator For the Mac
 
 A Python-based tool for creating and managing formatted text files on the Commodore 64 Ultimate via FTP. This tool allows you to create game documentation (usage notes, tips, and cheats) directly from your Mac, automatically sync them to your C64, and view these notes via the C64U system overlay **while you are within an actively running C64 application**.
 
@@ -16,12 +16,21 @@ By **in-program** I mean not having to exit a game, start up a C64 text editor, 
 
 ![FSII_Cont](https://github.com/user-attachments/assets/df371324-a818-48e9-86b7-35fd30c48c16)
 
-_Figure 1: C= RESTORE > navigate to text file > VIEW "Flight Simulator II_controls.txt"_
+_Figure 1: <kbd>C=</kbd> + <kbd>RESTORE</kbd> > navigate to text file > VIEW "Flight Simulator II_controls.txt"_
 
 ![FSII_Tips](https://github.com/user-attachments/assets/397676bf-1c84-4cda-9135-759fffc019d3)
 
-_Figure 2: C= RESTORE > navigate to text file > VIEW "Flight Simulator II_tips.txt"_
+_Figure 2: <kbd>C=</kbd> + <kbd>RESTORE</kbd> > navigate to text file > VIEW "Flight Simulator II_tips.txt"_
 
+## Why Mac-Only?
+1. I'm a Mac guy
+2. I originally created this in BASH (my favoriate of all langs)
+3. Several MacOS BASH/UNIX-y commands simply are not the same as their Linux counterparts (mostly different flags)
+4. Why not use FTP and PING?
+   - lftp is more command-line friendly, handles paths with spaces better, good timeout control.
+   - fping offers parallel scanning (faster than a sequential scan with ping), and has subnet scanning
+  
+  
 ## Features
 
 - **Network Auto-Discovery**: Automatically finds your C64 Ultimate device on the network
@@ -41,11 +50,11 @@ _Figure 2: C= RESTORE > navigate to text file > VIEW "Flight Simulator II_tips.t
 This program is based of of my organizational structure which is as follows:
 ```
 USB1/Favorite Programs/
--> Deadline [DIR]
--> Flight Simulator II [DIR]
--> Perry Mason [DIR]
--> Jumpman [DIR]
--> MiniFiler [DIR]
+├── Deadline/
+├── Flight Simulator II/
+├── Jumpman/
+├── MiniFiler/
+└── Perry Mason/
 ```
 **Yes, each program get it's own directory.  Why?** 
 - Disk space is nearly unlimited.  Why have a single "saves.d64" disk for games like Deadline and Perry Mason, when I can just have a "saves.d64" for Deadline, and a "saves.d64" for Perry Mason?  I also create program specific files, such as a custom .cfg file for Perry Mason.
@@ -54,24 +63,24 @@ USB1/Favorite Programs/
 With these points in mind, my directory structure actually looks like this:
 ```
 USB1/Favorite Programs/
--> Deadline [DIR]
------> saves.d64
------> Deadline.d64
------> Deadline_tips.txt
--> Flight Simulator II [DIR]
------> Flight_Simulator_II_controls.txt
------> Flight_Simulator_II.d64
--> Perry Mason [DIR]
------> Perry Mason_hints.txt
------> Perry Mason.d64
------> Perry Mason.cfg
--> Jumpman [DIR]
------> jumpman.crt
------> jumpman_full_manual.txt
--> MiniFiler [DIR]
------> minifiler.d64
------> saves.d64
------> minifiler_controls.txt
+├── Deadline/
+│   ├── Deadline.d64
+│   ├── Deadline_tips.txt
+│   └── saves.d64
+├── Flight Simulator II/
+│   ├── Flight_Simulator_II.d64
+│   └── Flight_Simulator_II_controls.txt
+├── Jumpman/
+│   ├── jumpman.crt
+│   └── jumpman_full_manual.txt
+├── MiniFiler/
+│   ├── minifiler.d64
+│   ├── minifiler_controls.txt
+│   └── saves.d64
+└── Perry Mason/
+    ├── Perry Mason.cfg
+    ├── Perry Mason.d64
+    └── Perry Mason_hints.txt
 ```
 ### Software Dependencies
 
@@ -151,7 +160,7 @@ F, H : aileron left, right or
 B, H : elevator up, down or
        joystick 1
 ```
-Also note, a "controls" document is more about text formatting and less about the actual key strokes.  For example, my "Hes Games" control file looks like this:
+Also note, a "controls" document is more about text formatting and less about the actual key strokes.  For example, my "`Hes Games`" control file looks like this:
 
 ```
 =====================================
@@ -208,9 +217,24 @@ Files are named automatically: `GameName_controls.txt`, `GameName_tips.txt`, `Ga
 
 ### Creating Directories
 
+This is usefull for when you already have a program scatterd on the file system (e.g. `Spy vs Spy.crt`) and you wish to organize it.  
+
 - Maximum 27 characters (C64 display constraint)
 - Spaces are allowed in directory names
 - Type `cancel` to abort directory creation
+
+Using the Spy vs Spy example, workflow would be:
+1. Create a directory called "Spy vs Spy"
+2. Choose the number for the newly created `Spy vs Spy` directory
+3. Create a guide.  For example, perhaps a "Usage" guide to decribe what all of the weapons do.
+4. On the C64U, copy `Spy vs Spy.crt` to the newly created "`Spy vs Spy`" directory.  You will now have this structure:
+   ```
+   USB1/Favorite Programs/
+    ├── Spy vs Spy/
+    │   ├── Spy vs Spy.crt
+    │   ├── Spy vs Spy_usage.txt
+
+    ```
 
 ## Troubleshooting
 
@@ -242,7 +266,7 @@ The first scan may take 10-15 seconds as it scans the entire subnet. Subsequent 
 ### Text Formatting
 
 - **Line Width**: 37 characters (optimal for C64 40-column display)
-- ** Notes**: Automatic colon alignment based on longest key name
+- **Notes**: Automatic colon alignment based on longest key name
 - **Wrapping**: Uses Python's `textwrap` with smart word breaking
 - **Character Handling**: Tabs converted to 4 spaces, compatible with PETSCII
 
@@ -319,16 +343,6 @@ This tool was designed for macOS but can be adapted for Windows with the followi
 - Replace system calls with cross-platform alternatives
 - Most portable but requires significant rewrite
 
-### Quick Windows Compatibility Checklist
-
-- [ ] Install Python 3.6+
-- [ ] Choose installation method (WSL, Cygwin, or Python-only)
-- [ ] Install `lftp` (via WSL/Cygwin) or rewrite FTP functions
-- [ ] Install `fping` (via WSL/Cygwin) or use alternative scan method
-- [ ] Update `INTERFACE` config to Windows interface name
-- [ ] Modify temp file path from `/tmp/` to Windows temp directory
-- [ ] Test ARP command format on Windows
-- [ ] Verify network discovery works on Windows network stack
 
 **Pull requests welcome** for a fully Windows-compatible version!
 
