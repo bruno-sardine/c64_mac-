@@ -12,11 +12,13 @@ Save: F1 F filename
 View Directory: F4 $0
 and so on...
 ```
-By **in-program** I mean not having to exit a game, start up a C64 text editor, load a previously created file, then exiting that, then re-loading your program!  The goal is to achieve creating these notes **outside** of the C64U.  The pictures below clearly illustrate the intention:
+_Figure 1: Wouldn't is be great to just be able to type this in as you're using Easy Script?_
+
+By **in-program** I mean not having to exit a program, start up a C64 text editor, load a previously created set of instructions, remember F2=Save, then exit that program, then re-load your original program, and finally FORGET F2=Save!  The goal is to achieve creating these notes **outside** of the Commodore 64 environment, but within the C64U's framework environment.  The pictures below clearly illustrate the intention:
 
 ![FSII_Cont](https://github.com/user-attachments/assets/df371324-a818-48e9-86b7-35fd30c48c16)
 
-_Figure 1: <kbd>C=</kbd> + <kbd>RESTORE</kbd> > navigate to text file > VIEW "Flight Simulator II_controls.txt"_
+_Figure 2: <kbd>C=</kbd> + <kbd>RESTORE</kbd> > navigate to text file > VIEW "Flight Simulator II_controls.txt"_
 
 ![FSII_Tips](https://github.com/user-attachments/assets/397676bf-1c84-4cda-9135-759fffc019d3)
 
