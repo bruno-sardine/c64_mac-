@@ -13,7 +13,7 @@ import threading
 import time
 
 # --- CONFIGURATION ---
-ULTIMATE_MAC = "2:15:41:7e:44:32"  # MAC address of C64 Ultimate device
+ULTIMATE_MAC = "xx:xx:xx:xx:xx:xx"  # MAC address of C64 Ultimate device
 INTERFACE = "en1"                   # Network interface to scan
 REMOTE_PATH_ROOT = "/USB1/Favorite Games"  # Base path on C64 Ultimate
 
