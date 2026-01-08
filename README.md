@@ -125,7 +125,7 @@ REMOTE_PATH_ROOT = "/USB1/Favorite Games"  # Base path on C64 Ultimate
 ### Starting the Program
 
 ```bash
-python3 c64.py
+python3 c64_textfile_gen.py
 ```
 
 ### Workflow
