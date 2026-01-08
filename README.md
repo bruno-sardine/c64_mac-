@@ -98,7 +98,7 @@ brew install lftp fping
 
 ### Hardware Requirements
 
-- Commodore 64 with Ultimate cartridge (Ultimate 64, Ultimate 1541-II, etc.)
+- Commodore 64 Ultimate (maybe this works with an Ultimate II ?)
 - Mac connected to the same network as your C64 Ultimate
 - C64 Ultimate configured for FTP access
 
